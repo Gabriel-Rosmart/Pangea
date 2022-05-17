@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Pangea:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Pangea_jar</output-path>
+    <root id="archive" name="Pangea.jar">
+      <element id="module-output" name="Pangea" />
+      <element id="extracted-dir" path="$USER_HOME$/Descargas/json-20220320.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Descargas/mysql-connector-java-8.0.29.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$/Icons" />
+    </root>
+  </artifact>
+</component>
