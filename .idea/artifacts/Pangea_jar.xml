@@ -5,7 +5,10 @@
       <element id="module-output" name="Pangea" />
       <element id="extracted-dir" path="$USER_HOME$/Descargas/json-20220320.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Descargas/mysql-connector-java-8.0.29.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/Icons" />
+      <element id="library" level="project" name="json-20220320" />
+      <element id="library" level="project" name="mysql-connector-java-8.0.29" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/Icons" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/Fonts" />
     </root>
   </artifact>
 </component>

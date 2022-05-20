@@ -106,7 +106,6 @@ public class GameRunner {
     }
 
     public void run(){
-        MusicPlayer.play();
         this.mainFrame.pack();
         this.mainFrame.setVisible(true);
     }
