@@ -3,6 +3,9 @@
 
 Create you own story with a tree structure, like the good old text games
 
+### Dependencies
+- MySQL or MariaDB Database Management System
+
 ### TODO:
 - [ ] Add music to the game
 - [ ] Write some tests
