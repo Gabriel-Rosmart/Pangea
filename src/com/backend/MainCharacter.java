@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class MainCharacter {
-    private String type;
+    private final String type;
     private int damage;
     private int hp;
     private int defence;

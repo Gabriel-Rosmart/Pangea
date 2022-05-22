@@ -30,8 +30,10 @@ public class GamePlay extends JPanel{
             this.saveButton.setForeground(tmp_font.getFontColorNormal());
             this.menuButton.setForeground(tmp_font.getFontColorNormal());
         } catch (IOException e) {
+            System.out.println("Something went wrong reading files, check if all necessary files exists");
             e.printStackTrace();
         } catch (FontFormatException e) {
+            System.out.println("Something went wrong with fonts");
             e.printStackTrace();
         }
     }

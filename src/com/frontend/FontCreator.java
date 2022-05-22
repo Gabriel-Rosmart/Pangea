@@ -31,7 +31,7 @@ public class FontCreator {
 
     public Font getGohuFont(int size){ return this.gohuFont.deriveFont(Font.BOLD, size); }
 
-    public Color getFontColorNormal(){ return this.fontColorNormal; };
+    public Color getFontColorNormal(){ return this.fontColorNormal; }
 
     public Color getFontColorSelect() { return this.fontColorSelect; }
 }
