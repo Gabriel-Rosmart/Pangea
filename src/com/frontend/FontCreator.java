@@ -7,6 +7,7 @@ import java.io.*;
 public class FontCreator {
     Font heavyData;
     Font caskaydiaCove;
+    Font gohuFont;
     Color fontColorNormal;
     Color fontColorSelect;
 
@@ -17,6 +18,9 @@ public class FontCreator {
         InputStream cc = new FileInputStream("Fonts" + File.separator + "Caskaydia_Cove_Nerd_Font_Complete.ttf");
         this.caskaydiaCove = Font.createFont(Font.TRUETYPE_FONT, cc);
 
+        InputStream ghf = new FileInputStream("Fonts" + File.separator + "GohuFont_Nerd_Font_Complete.ttf");
+        this.gohuFont = Font.createFont(Font.TRUETYPE_FONT, ghf);
+
         this.fontColorNormal = new Color(234, 164, 0);
         this.fontColorSelect = new Color(0, 161, 217);
     }
@@ -24,6 +28,8 @@ public class FontCreator {
     public Font getHeavyData(int size){ return this.heavyData.deriveFont(Font.BOLD, size); }
 
     public Font getCaskaydiaCove(int size) { return caskaydiaCove.deriveFont(Font.BOLD, size); }
+
+    public Font getGohuFont(int size){ return this.gohuFont.deriveFont(Font.BOLD, size); }
 
     public Color getFontColorNormal(){ return this.fontColorNormal; };
 
