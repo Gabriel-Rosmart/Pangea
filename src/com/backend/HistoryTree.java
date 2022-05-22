@@ -40,6 +40,8 @@ public class HistoryTree {
         this.next_node = this.second_child;
     }
 
+    public void setNextNode(int node){ this.next_node = node; }
+
     public int getCurrentNode(){
         return this.current_node;
     }

@@ -1,7 +1,6 @@
 package com.backend;
 
 import javax.swing.*;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -26,7 +25,42 @@ public class GameEngine {
 
     // Choose the character, needed in order to the battle nodes to work
     public void chooseMainCharacter(String chrPath) throws IOException{
-        this.mc = new MainCharacter("Config" + File.separator + chrPath);
+        this.mc = new MainCharacter(chrPath);
+    }
+
+    // Load game
+    public void loadSavedGame() throws IOException {
+        String[] data = SaveGameSystem.loadGame();
+        this.ht.setNextNode(Integer.parseInt(data[0]));
+        this.mc = new MainCharacter(data[1] + ".json", Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
+    }
+
+    /* Gets the current character the user is playing with */
+    public String getCurrentCharacter(){
+        return this.mc.getCharacterType();
+    }
+
+    public int[] getCharacterStats(){
+        int[] stats = new int[3];
+        stats[0] = this.mc.getHp();
+        stats[1] = this.mc.getDamage();
+        stats[2] = this.mc.getDefence();
+        return stats;
+    }
+
+    /* Gets the current node in story where the player is */
+    public int getSavedNode(){
+        return this.ht.getCurrentNode();
+    }
+
+    /* Resets the story and saves game*/
+    public void reset(){
+        this.ht.setNextNode(1);
+        try {
+            SaveGameSystem.saveGame(0, "", 0, 0, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Traverse the history leftwards, retrieving database information
@@ -61,6 +95,9 @@ public class GameEngine {
     private void checkIfBattleNode(javax.swing.JLabel plot_text, javax.swing.JButton fopt_text, javax.swing.JButton sopt_text, JLabel iconLabel) throws SQLException, IOException {
         if(cs.isBattleNode(this.ht.getCurrentNode())){
             if(cs.fight(mc, ht) == BattleResult.WIN){
+                this.mc.increaseHp();
+                this.mc.increaseDamage();
+                this.mc.increaseDefence();
                 this.ht.setNodeToFirstChild();
                 this.conn.fetchHistory();
                 setFieldsText(plot_text, fopt_text, sopt_text, iconLabel);

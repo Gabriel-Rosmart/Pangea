@@ -1,6 +1,6 @@
 {
-  "db_url" : "jdbc:mysql://localhost:3306/your_database",
-  "db_user" : "database_user",
-  "db_password" : "database_password",
-  "db_plot_table" : "your_table"
+  "db_url" : "jdbc:mysql://localhost:3306/TEXT_ADVENTURE",
+  "db_user" : "root",
+  "db_password" : "Tengo27calcetines",
+  "db_plot_table" : "MAIN_HISTORY"
 }
