@@ -12,4 +12,7 @@ Create you own story with a tree structure, like the good old text games
 
 ### Screenshot
 
-![pangea](https://user-images.githubusercontent.com/66219601/168872758-7da22ccc-8578-4baa-88c5-cbc918a8637b.png)
+![pangea_main_menu](https://user-images.githubusercontent.com/66219601/169689939-d8ac1178-37f0-490d-b38a-a5abd643f7e2.png)
+
+![pangea_chr_select](https://user-images.githubusercontent.com/66219601/169689947-e0a2cb2b-464a-4c45-90cd-e9d1b9de084d.png)
+
