@@ -3,10 +3,10 @@
 
 Create you own story with a tree structure, like the good old text games
 
-### Dependencies
+### Dependencies: 🔓
 - MySQL or MariaDB Database Management System
 
-### TODO:
+### TODO: :bookmark_tabs:
 - [ ] Add music to the game
 - [ ] Write some tests
 
