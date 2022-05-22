@@ -1,6 +1,0 @@
-{
-  "db_url" : "jdbc:mysql://localhost:3306/your_database",
-  "db_user" : "your_user",
-  "db_password" : "your_password",
-  "db_plot_table" : "your_table"
-}

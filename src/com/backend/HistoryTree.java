@@ -1,5 +1,7 @@
 package com.backend;
 
+import java.io.File;
+
 public class HistoryTree {
     private int current_node;
     private String main_text;
@@ -54,7 +56,7 @@ public class HistoryTree {
 
     public String getSecondOption() { return second_option; }
 
-    public String getImageUrl() { return image_url; }
+    public String getImageUrl() { return "Images" + File.separator + image_url; }
 
     public int getNextNode(){ return this.next_node; }
 }

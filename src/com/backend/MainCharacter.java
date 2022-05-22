@@ -15,7 +15,7 @@ public class MainCharacter {
 
     public MainCharacter(String configFile) throws IOException {
         // Read the content of the file
-        Path configPath = Path.of("Config" + File.separator + configFile);
+        Path configPath = Path.of("Config" + File.separator + "chr_attributes" + File.separator + configFile);
         String content = Files.readString(configPath);
 
         // Parse Json data into object attributes

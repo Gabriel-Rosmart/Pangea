@@ -33,8 +33,11 @@ public class GameEngine {
     // Load game
     public void loadSavedGame() throws IOException {
         String[] data = SaveGameSystem.loadGame();
+        /* data[0] = node where user left game */
         this.ht.setNextNode(Integer.parseInt(data[0]));
+        /* data[1] = character user picked, data[2] = character hp, data[3] = character damage, data[4] = character defence */
         this.mc = new MainCharacter(data[1] + ".json", Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
+        /* data[5] = how many points the user had */
         this.rs.setPoints(Integer.parseInt(data[5]));
     }
 
@@ -43,6 +46,7 @@ public class GameEngine {
         return this.mc.getCharacterType();
     }
 
+    /* Gets how many points the user has */
     public int getRecordPoints(){ return this.rs.getPoints(); }
 
     /* Gets the stats of the character */

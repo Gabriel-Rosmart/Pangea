@@ -15,7 +15,7 @@ public class Monster {
     public Monster(int node) throws IOException {
         // Read content of te file
         //Path configPath = Path.of("src" + File.separator + "Configs" + File.separator + "monsters.json");
-        Path configPath = Path.of("Config" + File.separator + "monsters.json");
+        Path configPath = Path.of("Config" + File.separator + "battle" + File.separator + "monsters.json");
         String content = Files.readString(configPath);
 
         // Parse Json data into object attributes

@@ -18,7 +18,7 @@ public class CombatSystem {
 
         // Reads the contents of the config file
         //Path configPath = Path.of("src" + File.separator + "Configs" + File.separator + "battle_nodes.json");
-        Path configPath = Path.of("Config" + File.separator + "battle_nodes.json");
+        Path configPath = Path.of("Config" + File.separator + "battle" + File.separator + "battle_nodes.json");
         String content = Files.readString(configPath);
 
         // Parse the Json array inside it

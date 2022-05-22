@@ -13,7 +13,7 @@ public class SaveGameSystem {
     /* Retrieves the current saved game information */
     public static String[] loadGame() throws IOException {
         String[] data = new String[6];
-        Path saveGamePath = Path.of("Data/saved_game.json");
+        Path saveGamePath = Path.of("Data" + File.separator + "saved_game.json");
         String content = Files.readString(saveGamePath);
         JSONObject obj = new JSONObject(content);
         data[0] = String.valueOf(obj.getInt("node"));

@@ -23,7 +23,7 @@ public class Connector {
 
     public Connector(HistoryTree ht) throws IOException {
         //Path configPath = Path.of("src" + File.separator + "Configs" + File.separator + "db_config.json");
-        Path configPath = Path.of("Config" + File.separator + "db_config.json");
+        Path configPath = Path.of("Config" + File.separator + "database" + File.separator + "db_config.json");
         String content = Files.readString(configPath);
 
         JSONObject obj = new JSONObject(content);
