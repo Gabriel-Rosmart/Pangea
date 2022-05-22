@@ -8,12 +8,14 @@ public class GameEngine {
     private final HistoryTree ht;
     private final Connector conn;
     private final CombatSystem cs;
+    private final RecordSystem rs;
     private MainCharacter mc;
 
     public GameEngine() throws IOException, SQLException {
         this.cs = new CombatSystem();
         this.ht = new HistoryTree();
         this.conn = new Connector(ht);
+        this.rs = new RecordSystem();
         this.conn.initConnector();
     }
 
@@ -33,6 +35,7 @@ public class GameEngine {
         String[] data = SaveGameSystem.loadGame();
         this.ht.setNextNode(Integer.parseInt(data[0]));
         this.mc = new MainCharacter(data[1] + ".json", Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
+        this.rs.setPoints(Integer.parseInt(data[5]));
     }
 
     /* Gets the current character the user is playing with */
@@ -40,6 +43,9 @@ public class GameEngine {
         return this.mc.getCharacterType();
     }
 
+    public int getRecordPoints(){ return this.rs.getPoints(); }
+
+    /* Gets the stats of the character */
     public int[] getCharacterStats(){
         int[] stats = new int[3];
         stats[0] = this.mc.getHp();
@@ -56,8 +62,9 @@ public class GameEngine {
     /* Resets the story and saves game*/
     public void reset(){
         this.ht.setNextNode(1);
+        this.rs.resetPoints();
         try {
-            SaveGameSystem.saveGame(0, "", 0, 0, 0);
+            SaveGameSystem.saveGame(0, "", 0, 0, 0, 0);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,6 +74,7 @@ public class GameEngine {
     public Result goLeft(JLabel plot_text, JButton fopt_text, JButton sopt_text, JLabel iconLabel) throws SQLException, IOException{
         this.ht.setNodeToFirstChild();
         Result res = this.conn.fetchHistory();
+        this.rs.increasePoints(10);
         setFieldsText(plot_text, fopt_text, sopt_text, iconLabel);
         /* If it's a combat node decide automatically where to go, the retrieve information from database*/
         checkIfBattleNode(plot_text, fopt_text, sopt_text, iconLabel);
@@ -77,6 +85,7 @@ public class GameEngine {
     public Result goRigth(JLabel plot_text, JButton fopt_text, JButton sopt_text, JLabel iconLabel) throws SQLException, IOException{
         ht.setNodeToSecondChild();
         Result res = conn.fetchHistory();
+        this.rs.increasePoints(10);
         setFieldsText(plot_text, fopt_text, sopt_text, iconLabel);
         /* If it's a combat node decide automatically where to go, the retrieve information from database */
         checkIfBattleNode(plot_text, fopt_text, sopt_text, iconLabel);
@@ -100,6 +109,7 @@ public class GameEngine {
                 this.mc.increaseDefence();
                 this.ht.setNodeToFirstChild();
                 this.conn.fetchHistory();
+                this.rs.increasePoints(20);
                 setFieldsText(plot_text, fopt_text, sopt_text, iconLabel);
             }
             else{

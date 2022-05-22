@@ -129,6 +129,7 @@ public class GameRunner {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if(gameEngine.goLeft(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel) == Result.ERR){
+                        drawRecordLabels();
                         gameEngine.reset();
                         mainFrame.setContentPane(endGame.mainPanel);
                         mainFrame.invalidate();
@@ -149,6 +150,7 @@ public class GameRunner {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if(gameEngine.goRigth(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel) == Result.ERR){
+                        drawRecordLabels();
                         gameEngine.reset();
                         mainFrame.setContentPane(endGame.mainPanel);
                         mainFrame.invalidate();
@@ -223,9 +225,14 @@ public class GameRunner {
     private void saveGame(){
         try {
             int[] chrStats = gameEngine.getCharacterStats();
-            SaveGameSystem.saveGame(gameEngine.getSavedNode(), gameEngine.getCurrentCharacter(), chrStats[0], chrStats[1], chrStats[2]);
+            SaveGameSystem.saveGame(gameEngine.getSavedNode(), gameEngine.getCurrentCharacter(), chrStats[0], chrStats[1], chrStats[2], gameEngine.getRecordPoints());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void drawRecordLabels(){
+        endGame.pointsLabel.setText("Points: " + gameEngine.getRecordPoints());
+        endGame.chrLabel.setText("Character: " + gameEngine.getCurrentCharacter());
     }
 }

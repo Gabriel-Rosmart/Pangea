@@ -12,7 +12,7 @@ public class SaveGameSystem {
 
     /* Retrieves the current saved game information */
     public static String[] loadGame() throws IOException {
-        String[] data = new String[5];
+        String[] data = new String[6];
         Path saveGamePath = Path.of("Data/saved_game.json");
         String content = Files.readString(saveGamePath);
         JSONObject obj = new JSONObject(content);
@@ -21,11 +21,12 @@ public class SaveGameSystem {
         data[2] = String.valueOf(obj.getJSONObject("stats").getInt("hp"));
         data[3] = String.valueOf(obj.getJSONObject("stats").getInt("attack"));
         data[4] = String.valueOf(obj.getJSONObject("stats").getInt("defence"));
+        data[5] = String.valueOf(obj.getInt("points"));
         return data;
     }
 
     /* Saves the game overriding existing data */
-    public static void saveGame(int node, String selected_character, int hp, int damage, int defence) throws IOException {
+    public static void saveGame(int node, String selected_character, int hp, int damage, int defence, int points) throws IOException {
         Path saveGamePath = Path.of("Data" + File.separator + "saved_game.json");
         String content = Files.readString(saveGamePath);
         JSONObject obj = new JSONObject(content);
@@ -34,6 +35,7 @@ public class SaveGameSystem {
         obj.getJSONObject("stats").put("hp", hp);
         obj.getJSONObject("stats").put("attack", damage);
         obj.getJSONObject("stats").put("defence", defence);
+        obj.put("points", points);
 
         FileWriter file = new FileWriter("Data" + File.separator + "saved_game.json");
         file.write(obj.toString());
