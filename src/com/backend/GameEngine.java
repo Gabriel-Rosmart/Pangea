@@ -101,7 +101,7 @@ public class GameEngine {
     }
 
     private void setFieldsText(javax.swing.JLabel plot_text, javax.swing.JButton fopt_text, javax.swing.JButton sopt_text, JLabel iconLabel){
-        plot_text.setText(this.ht.getMainText());
+        plot_text.setText(TextFormatter.format(this.ht.getMainText()));
         fopt_text.setText(this.ht.getFirstOption());
         sopt_text.setText(this.ht.getSecondOption());
         if(this.ht.getImageUrl() != null){

@@ -1,13 +1,7 @@
 {
-  "2" : {
-    "base_hp": 20,
-    "base_damage" : 120,
-    "base_defence" : 160
-  },
-
-  "8" : {
-    "base_hp": 60,
-    "base_damage" : 140,
-    "base_defence" : 100
+  "9" : {
+    "base_hp": 1000,
+    "base_damage" : 1000,
+    "base_defence" : 1000
   }
 }
