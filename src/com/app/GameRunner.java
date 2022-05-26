@@ -117,7 +117,7 @@ public class GameRunner {
             try {
                 if(gameEngine.goLeft(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel) == Result.ERR){
                     drawRecordLabels();
-                    gameEngine.reset();
+                    //gameEngine.reset();
                     mainFrame.setContentPane(endGame.mainPanel);
                     mainFrame.invalidate();
                     mainFrame.validate();
@@ -137,7 +137,7 @@ public class GameRunner {
             try {
                 if(gameEngine.goRigth(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel) == Result.ERR){
                     drawRecordLabels();
-                    gameEngine.reset();
+                    //gameEngine.reset();
                     mainFrame.setContentPane(endGame.mainPanel);
                     mainFrame.invalidate();
                     mainFrame.validate();
@@ -166,6 +166,11 @@ public class GameRunner {
 
         /* Goes to the main menu when pressed and resets the story and disables the load game button */
         this.endGame.mainMenuButton.addActionListener(actionEvent -> {
+            try {
+                gameEngine.addRecord(endGame.getUsername(), gameEngine.getCurrentCharacter(), gameEngine.getRecordPoints());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             gameEngine.reset();
             mainFrame.setContentPane(loadGame.mainPanel);
             mainFrame.invalidate();

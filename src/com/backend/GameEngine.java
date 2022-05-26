@@ -74,6 +74,10 @@ public class GameEngine {
         }
     }
 
+    public void addRecord(String username, String chr_type, int points) throws SQLException {
+        this.conn.insertRecord(username, chr_type, points);
+    }
+
     // Traverse the history leftwards, retrieving database information
     public Result goLeft(JLabel plot_text, JButton fopt_text, JButton sopt_text, JLabel iconLabel) throws SQLException, IOException{
         this.ht.setNodeToFirstChild();

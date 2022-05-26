@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="TEXT_ADVENTURE@localhost" uuid="0334229b-fa59-4e4b-9256-3ac94157fd93">
+    <data-source source="LOCAL" name="TEXT_ADVENTURE@localhost" uuid="96c48e04-6c30-4f54-97c3-f1e45dee9f5e">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <remarks>Pangea project</remarks>

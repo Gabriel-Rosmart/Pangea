@@ -10,6 +10,8 @@ public class EndGame {
     public JButton mainMenuButton;
     public JLabel pointsLabel;
     public JLabel chrLabel;
+    private JLabel submitLabel;
+    public JTextField submitTextField;
 
     public EndGame(){
         mainPanel.setBackground(new Color(10, 10, 23));
@@ -23,6 +25,9 @@ public class EndGame {
             this.pointsLabel.setForeground(tmp_font.getFontColorNormal());
             this.chrLabel.setFont(tmp_font.getGohuFont(26));
             this.chrLabel.setForeground(tmp_font.getFontColorNormal());
+            this.submitLabel.setFont(tmp_font.getGohuFont(26));
+            this.submitLabel.setForeground(tmp_font.getFontColorNormal());
+            this.submitLabel.setFont(tmp_font.getGohuFont(26));
 
         } catch (IOException e) {
             System.out.println("Something went wrong reading files, check if all necessary files exists");
@@ -31,5 +36,10 @@ public class EndGame {
             System.out.println("Something went wrong with fonts");
             e.printStackTrace();
         }
+    }
+
+    public String getUsername(){
+        if(this.submitTextField.getText().equals("")) return "Anonymous";
+        else return this.submitTextField.getText();
     }
 }

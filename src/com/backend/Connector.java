@@ -14,6 +14,7 @@ public class Connector {
     private final String DB_USER;
     private final String PASSWORD;
     private final String PLOT_TABLE;
+    private final String RECORD_TABLE;
 
 
     private Connection conn;
@@ -31,6 +32,7 @@ public class Connector {
         this.DB_USER = obj.getString("db_user");
         this.PASSWORD = obj.getString("db_password");
         this.PLOT_TABLE = obj.getString("db_plot_table");
+        this.RECORD_TABLE = obj.getString("db_record_table");
 
         this.ht = ht;
     }
@@ -52,5 +54,14 @@ public class Connector {
         else{
             return Result.ERR;
         }
+    }
+
+    public void insertRecord(String username, String chr_type, int points) throws SQLException {
+        String insertQuery = "INSERT INTO " + this.RECORD_TABLE + "(USERNAME, CHARACTER_TYPE, POINTS) VALUES(?, ?, ?)";
+        PreparedStatement ps = conn.prepareStatement(insertQuery);
+        ps.setString(1, username);
+        ps.setString(2, chr_type);
+        ps.setInt(3, points);
+        ps.execute();
     }
 }
