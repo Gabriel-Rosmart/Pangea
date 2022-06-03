@@ -54,7 +54,7 @@ public class GameRunner {
                 mainFrame.invalidate();
                 mainFrame.validate();
                 mainFrame.repaint();
-                gameEngine.init(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel);
+                gameEngine.init(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconPanel.iconLabel);
             } catch (IOException e) {
                 alertUser("Something went wrong when reading files, check if all necessary files exists");
                 e.printStackTrace();
@@ -72,7 +72,7 @@ public class GameRunner {
             mainFrame.repaint();
             try {
                 gameEngine.reset();
-                gameEngine.init(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel);
+                gameEngine.init(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconPanel.iconLabel);
             } catch (SQLException e) {
                 alertUser("Something went wrong with the database, check your configuration file");
                 e.printStackTrace();
@@ -102,7 +102,7 @@ public class GameRunner {
                 else{
                     gameEngine.chooseMainCharacter("knight.json");
                 }
-                gameEngine.init(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel);
+                gameEngine.init(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconPanel.iconLabel);
             } catch (IOException e) {
                 alertUser("Something went wrong when reading files, check if all necessary files exists");
                 e.printStackTrace();
@@ -115,7 +115,7 @@ public class GameRunner {
         /* Goes to the first option in the story when pressed */
         this.gamePlay.leftChoiceButton.addActionListener(actionEvent -> {
             try {
-                if(gameEngine.goLeft(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel) == Result.ERR){
+                if(gameEngine.goLeft(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconPanel.iconLabel) == Result.ERR){
                     drawRecordLabels();
                     //gameEngine.reset();
                     mainFrame.setContentPane(endGame.mainPanel);
@@ -135,7 +135,7 @@ public class GameRunner {
         /* Goes the second option of the story when pressed */
         this.gamePlay.rigthChoiceButton.addActionListener(actionEvent -> {
             try {
-                if(gameEngine.goRigth(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconLabel) == Result.ERR){
+                if(gameEngine.goRigth(gamePlay.plotLabel, gamePlay.leftChoiceButton, gamePlay.rigthChoiceButton, gamePlay.iconPanel.iconLabel) == Result.ERR){
                     drawRecordLabels();
                     //gameEngine.reset();
                     mainFrame.setContentPane(endGame.mainPanel);
